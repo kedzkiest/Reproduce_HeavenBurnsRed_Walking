@@ -459,6 +459,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 9405153ce3e46ed4aa0c2bf5c0776681, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0027491811
+      objectReference: {fileID: 0}
+    - target: {fileID: 400022, guid: 9405153ce3e46ed4aa0c2bf5c0776681, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.0046092854
+      objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 9405153ce3e46ed4aa0c2bf5c0776681, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 2a7e0b1afcc6ccd44b62db64f49cf7b1, type: 2}
+    - target: {fileID: 9500000, guid: 9405153ce3e46ed4aa0c2bf5c0776681, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: 9405153ce3e46ed4aa0c2bf5c0776681, type: 3}
       propertyPath: m_DirtyAABB
       value: 0
@@ -592,8 +608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   path: {fileID: 2139269362}
   cart: {fileID: 1934876534}
-  moveSpeed: 10
-  rotateSpeed: 0
+  moveSpeed: 5
+  rotateSpeed: 10
+  rot: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1934876533
 GameObject:
   m_ObjectHideFlags: 0
@@ -627,7 +644,7 @@ MonoBehaviour:
   m_UpdateMethod: 0
   m_PositionUnits: 1
   m_Speed: 0
-  m_Position: 16.22
+  m_Position: 12.581488
 --- !u!4 &1934876535
 Transform:
   m_ObjectHideFlags: 0
@@ -635,8 +652,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1934876533}
-  m_LocalRotation: {x: 0, y: 0.9948742, z: 0, w: 0.10112045}
-  m_LocalPosition: {x: -3.6371064, y: 1, z: -0.77942204}
+  m_LocalRotation: {x: 0, y: -0.6392996, z: 0, w: 0.7689578}
+  m_LocalPosition: {x: -3, y: 1, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -678,7 +695,7 @@ MonoBehaviour:
     pathColor: {r: 0, g: 1, b: 0, a: 1}
     inactivePathColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     width: 0.2
-  m_Looped: 1
+  m_Looped: 0
   m_Waypoints:
   - position: {x: -2, y: 1, z: -3.5}
     roll: 0
