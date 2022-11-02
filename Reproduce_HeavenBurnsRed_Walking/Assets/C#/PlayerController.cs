@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using Cinemachine;
 
@@ -53,10 +50,12 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        /*
         transform.position = new Vector3(
             x: transform.position.x,
             y: 0,
             z: transform.position.z);
+        */
 
         if (Input.GetKey(KeyCode.RightArrow))
         {
