@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float rotateSpeed;
     [SerializeField] private float howCloseCanReachPathEnd;
     private Animator anim;
+
+    [SerializeField] private float xOffset;
+    [SerializeField] private float zOffset;
 
     void Start()
     {
@@ -51,7 +55,7 @@ public class PlayerController : MonoBehaviour
     {
 
         // passive character moving along the path(cart)
-        transform.position = cart.transform.position;
+        transform.position = cart.transform.position + new Vector3(xOffset, 0, zOffset);
 
         // active character moving using keyinput
         if (Input.GetKey(KeyCode.RightArrow))
