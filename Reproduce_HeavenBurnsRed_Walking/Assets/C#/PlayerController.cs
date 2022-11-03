@@ -13,13 +13,6 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cart.transform.position = new Vector3(
-            x: path.m_Waypoints[0].position.x,
-            y: 0,
-            z: path.m_Waypoints[0].position.z);
-
-        transform.rotation = Quaternion.identity;
-
         anim = GetComponent<Animator>();
     }
 
@@ -35,28 +28,26 @@ public class PlayerController : MonoBehaviour
 
     private void Rotate()
     {
+        // active character rotation using keyinput
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            rot = cart.transform.rotation;
+            rot = Quaternion.Euler(0, cart.transform.rotation.eulerAngles.y, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotateSpeed * Time.deltaTime);
         }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rot = cart.transform.rotation * Quaternion.Euler(0, 180, 0);
+            rot = Quaternion.Euler(0, cart.transform.rotation.eulerAngles.y, 0) * Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotateSpeed * Time.deltaTime);
         }
-
-        transform.rotation = Quaternion.Slerp(transform.rotation, rot, rotateSpeed * Time.deltaTime);
     }
 
     private void Move()
     {
-        /*
-        transform.position = new Vector3(
-            x: transform.position.x,
-            y: 0,
-            z: transform.position.z);
-        */
+        // passive character moving along the path(cart)
+        transform.position = cart.transform.position;
 
+        // active character moving using keyinput
         if (Input.GetKey(KeyCode.RightArrow))
         {
             if (!path.m_Looped && Mathf.Abs(path.PathLength - cart.m_Position) < 0.1f)
