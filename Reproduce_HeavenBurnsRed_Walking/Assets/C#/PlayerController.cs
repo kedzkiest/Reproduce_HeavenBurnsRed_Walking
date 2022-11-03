@@ -3,22 +3,27 @@ using Cinemachine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private CinemachineSmoothPath path;
+    [SerializeField] private CinemachinePath path;
     [SerializeField] private CinemachineDollyCart cart;
 
     [SerializeField] private float moveSpeed;
     [SerializeField] private float rotateSpeed;
+    [SerializeField] private float howCloseCanReachPathEnd;
     private Animator anim;
 
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
+        if (Input.GetKey(KeyCode.LeftArrow) && Input.GetKey(KeyCode.RightArrow))
+        {
+            anim.SetBool("isRunning", false);
+            return;
+        }
+
         Rotate();
         Move();
     }
@@ -44,13 +49,14 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+
         // passive character moving along the path(cart)
         transform.position = cart.transform.position;
 
         // active character moving using keyinput
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (!path.m_Looped && Mathf.Abs(path.PathLength - cart.m_Position) < 0.1f)
+            if (!path.m_Looped && Mathf.Abs(path.PathLength - cart.m_Position) < howCloseCanReachPathEnd)
             {
                 anim.SetBool("isRunning", false);
                 return;
@@ -63,7 +69,7 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (!path.m_Looped && Mathf.Abs(cart.m_Position) < 0.1f)
+            if (!path.m_Looped && Mathf.Abs(cart.m_Position) < howCloseCanReachPathEnd)
             {
                 anim.SetBool("isRunning", false);
                 return;
