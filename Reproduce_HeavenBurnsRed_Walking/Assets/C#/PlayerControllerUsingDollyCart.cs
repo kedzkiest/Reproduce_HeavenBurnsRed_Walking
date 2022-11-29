@@ -2,7 +2,7 @@ using UnityEngine;
 using Cinemachine;
 using UnityEngine.UIElements;
 
-public class PlayerController : MonoBehaviour
+public class PlayerControllerUsingDollyCart : MonoBehaviour
 {
     [SerializeField] private CinemachinePath path;
     [SerializeField] private CinemachineDollyCart cart;
