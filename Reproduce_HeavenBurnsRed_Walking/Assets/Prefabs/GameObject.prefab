@@ -148,8 +148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: decabf10de9184148bee4e8d20c03248, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerInteractionDist: 1
-  yOffset: 1
+  playerInteractionDist: 0.5
+  offset: {x: -3.8, y: 0, z: -1.7}
 --- !u!1 &2211258509207854642
 GameObject:
   m_ObjectHideFlags: 0
